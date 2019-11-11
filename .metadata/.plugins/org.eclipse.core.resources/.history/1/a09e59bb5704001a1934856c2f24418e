@@ -42,7 +42,7 @@ public class AdminCtrl {
 	
 	
 	@GetMapping("/create/table")
-    public Map<?,?> createAdmin(){
+    public Map<?,?> createCustomer(){
     	HashMap<String, String> paramMap = new HashMap<>();
     	paramMap.put("CREATE_ADMIN", SQL.CREATE_ADMIN.toString());
     	System.out.println("테이블 생성 쿼리 : \n"+paramMap.get("CREATE_ADMIN"));
@@ -54,7 +54,7 @@ public class AdminCtrl {
     }
 	
 	@GetMapping("/drop/table")
-    public Map<?,?> dropAdmin(){
+    public Map<?,?> dropCustomer(){
     	HashMap<String, String> paramMap = new HashMap<>();
     	paramMap.put("DROP_ADMIN", SQL.DROP_ADMIN.toString());
     	System.out.println("테이블 삭제 쿼리 : \n"+paramMap.get("DROP_ADMIN"));

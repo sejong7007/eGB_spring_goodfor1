@@ -42,7 +42,7 @@ public class AdminCtrl {
 	
 	
 	@GetMapping("/create/table")
-    public Map<?,?> createAdmin(){
+    public Map<?,?> createCustomer(){
     	HashMap<String, String> paramMap = new HashMap<>();
     	paramMap.put("CREATE_ADMIN", SQL.CREATE_ADMIN.toString());
     	System.out.println("테이블 생성 쿼리 : \n"+paramMap.get("CREATE_ADMIN"));

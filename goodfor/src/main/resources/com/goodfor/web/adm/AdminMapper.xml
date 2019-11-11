@@ -17,6 +17,9 @@
     	${CREATE_ADMIN}
     </select>
 
+	<select id="dropAdmin" parameterType="map">
+    	${DROP_ADMIN}
+    </select>
 		
 	
 
