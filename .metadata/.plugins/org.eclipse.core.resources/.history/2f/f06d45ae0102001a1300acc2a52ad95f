@@ -1,0 +1,28 @@
+package com.goodfor.web.test;
+
+public class OthersTest {
+
+	public static void main(String[] args) {
+		
+		for (int i = 0 ; i<10 ; i++) {
+		int phoneNum1 = (int)(Math.random() * 10000) ;
+		int phoneNum2 = (int)(Math.random() * 10000) ;
+		
+		
+			/*int maxBirthYear = 90;
+			int minBirthYear = 60;
+			int[] maxDays = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+	        int iMinMonth = 1;
+	        int iMaxMonth = 12;
+	        int iRandomYear = (int)(Math.random()*maxBirthYear- minBirthYear+1) + minBirthYear;
+	        int iRandomMonth = (int)(Math.random() * iMaxMonth - iMinMonth + 1) + iMinMonth;
+	        int iRandomDay = (int)(Math.random() * (maxDays[iRandomMonth-1] -2) + 1);*/
+	        System.out.println(String.format("%04d%04d",phoneNum1,phoneNum2));
+	       
+		}
+
+	
+		
+	}
+
+}

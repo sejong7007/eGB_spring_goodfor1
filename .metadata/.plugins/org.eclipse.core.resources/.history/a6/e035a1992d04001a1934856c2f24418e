@@ -1,0 +1,15 @@
+package com.goodfor.web.aop;
+
+import org.apache.ibatis.annotations.Insert;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.goodfor.web.customer.Customer;
+
+@Repository
+@Transactional
+public interface TxMapper {
+	@Insert("INSERT INTO CUSTOMER (MID, MPW, MNAME )\n" + 
+			"        VALUES ( #{mid}, #{mpw}, #{mname}")
+	public int insertCustomer(Customer c);
+}

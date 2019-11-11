@@ -1,0 +1,15 @@
+package com.goodfor.web.enums;
+
+public enum SQL {
+	CREATE_CUSTOMER;
+	@Override
+	public String toString() {
+		String result = "";
+		switch(this) {
+		case CREATE_CUSTOMER :
+			result = "";
+		}
+		return result;
+	}
+
+}

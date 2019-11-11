@@ -1,0 +1,5 @@
+package com.goodfor.web.enums;
+
+public enum SQL {
+
+}

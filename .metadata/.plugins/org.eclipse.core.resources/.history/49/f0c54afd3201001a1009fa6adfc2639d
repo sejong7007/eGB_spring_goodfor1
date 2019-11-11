@@ -1,0 +1,5 @@
+package com.goodfor.web.ctx;
+
+public class RootContext {
+
+}

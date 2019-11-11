@@ -1,0 +1,10 @@
+package com.goodfor.web.test;
+
+public class OthersTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

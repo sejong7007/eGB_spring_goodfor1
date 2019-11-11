@@ -1,0 +1,17 @@
+package com.goodfor.web.enums;
+
+public enum SQL {
+	CREATE_CUSTOMER, DROP_CUSTOMER;
+	@Override
+	public String toString() {
+		String result = "";
+		switch(this) {
+		case CREATE_CUSTOMER :
+			result = "CREATE TABLE MYSQL.CUSTOMER() ";
+		case DROP_CUSTOMER : 
+			result = "DROP TABLE MYSQL.CUSTOMER()";
+		}
+		return result;
+	}
+
+}

@@ -1,0 +1,51 @@
+package com.goodfor.web.test;
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
+public class OthersTest {
+
+	public static void main(String[] args) {
+		
+		for (int i = 0 ; i<10 ; i++) {
+			
+			
+			
+		
+			/*//int phoneNum1 = (int)(Math.random() * 10000) ;
+			//int phoneNum2 = (int)(Math.random() * 10000) ;	
+			int maxBirthYear = 90;
+			int minBirthYear = 60;
+			int[] maxDays = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+	        int iMinMonth = 1;
+	        int iMaxMonth = 12;
+	        int iRandomYear = (int)(Math.random()*maxBirthYear- minBirthYear+1) + minBirthYear;
+	        int iRandomMonth = (int)(Math.random() * iMaxMonth - iMinMonth + 1) + iMinMonth;
+	        //int iRandomDay = (int)(Math.random() * maxDays[iRandomMonth-1] + 1);
+	        int iRandomDay = (int)(Math.random() * (maxDays[iRandomMonth-1] -2) + 1);
+	        System.out.println(String.format("%02d월 %02d일",iRandomMonth,iRandomDay));*/
+	       
+		}
+		
+		
+		/*List<String> smallLetter = Arrays.asList("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q",
+		        "r", "s", "t", "u", "v", "w", "x", "y", "z");
+		List<String> capitalLetter = Arrays.asList("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q",
+		        "R", "S", "T", "U", "V", "W", "X", "Y", "Z");
+		List<String> number = Arrays.asList("1","2","3","4","5","6","7","8","9","0");
+		 Collections.shuffle(smallLetter);
+		 Collections.shuffle(capitalLetter);		 
+		 Collections.shuffle(number);
+		 		 
+		 String newId = smallLetter.get((int)(Math.random()*26))+
+				 		smallLetter.get((int)(Math.random()*26))+
+				 		smallLetter.get((int)(Math.random()*26)) +
+				 		smallLetter.get((int)(Math.random()*26))+
+				 		number.get(0);
+		 
+		 System.out.println(newId);*/
+		
+	}
+
+}

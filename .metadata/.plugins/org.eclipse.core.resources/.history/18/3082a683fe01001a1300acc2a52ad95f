@@ -1,0 +1,25 @@
+package com.goodfor.web.test;
+
+public class OthersTest {
+
+	public static void main(String[] args) {
+		
+		
+			
+	        int[] maxDays = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+	        
+	        int iMinMonth = 1;
+	        int iMaxMonth = 12;
+	        
+	        int iRandomMonth = (int)(Math.random() * iMaxMonth - iMinMonth + 1) + iMinMonth;
+	        int iRandomDay = (int)(Math.random() * (maxDays[iRandomMonth-1] -2) + 1);
+	        
+	        for (int i = 0 ; i<10 ; i++) {
+	        System.out.println(iRandomMonth + " , " + iRandomDay);
+	        }
+
+	
+		
+	}
+
+}
