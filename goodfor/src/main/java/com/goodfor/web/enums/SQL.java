@@ -40,16 +40,12 @@ public enum SQL {
 			result = "CREATE DATABASE GOODFORDB";
 			break;
 		case CREATE_COMMT :
-			result = "CREATE TABLE GOODFOR.COMMUNITY(" + 
-					 " SEQ VARCHAR(10) PRIMARY KEY,\r\n" + 
-					 " MID VARCHAR(10) NOT NULL,\r\n" + 
-					 " MNAME VARCHAR(4) NOT NULL,\r\n" + 
-					 " EMAIL VARCHAR(30),\r\n" + 
-					 " PHONENUM VARCHAR(15),\r\n" + 
-					 " BIRTH VARCHAR(6),\r\n" + 
-					 " TOOJA VARCHAR(1),\r\n" + 
-					 " REGISTER_DATE VARCHAR(15),\r\n" + 
-					 " TIER VARCHAR(1))";
+			result = "CREATE TABLE GOODFOR.COMMUNITY(\n" + 
+					"    SEQNO INT(4) PRIMARY KEY AUTO_INCREMENT,\n" + 
+					"    MID VARCHAR(10) NOT NULL,\n" + 
+					"    MNAME VARCHAR(4) NOT NULL,\n" + 
+					"    MEMO VARCHAR(30),\n" + 
+					"    UPLOADFILE VARCHAR(30));";
 			break;
 		case DROP_COMMT : 
 			result = "DROP TABLE GOODFOR.COMMUNITY";
