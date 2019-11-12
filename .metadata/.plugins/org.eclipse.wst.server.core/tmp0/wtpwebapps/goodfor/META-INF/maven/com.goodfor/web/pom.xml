@@ -19,7 +19,7 @@
 		<aspectj-version>1.6.10</aspectj-version>
 		<slf4j-version>1.6.6</slf4j-version>
 		<lombok-version>1.18.8</lombok-version>
-		<servlet-version>2.5</servlet-version>
+		<servlet-version>3.1.0</servlet-version>
 		<jsp-version>2.1</jsp-version>
 		<jstl-version>1.2</jstl-version>
 		<junit-version>4.7</junit-version>
@@ -139,12 +139,7 @@
 		</dependency>
 				
 		<!-- Servlet -->
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>servlet-api</artifactId>
-			<version>${servlet-version}</version>
-			<scope>provided</scope>
-		</dependency>
+		
 		<dependency>
 			<groupId>javax.servlet.jsp</groupId>
 			<artifactId>jsp-api</artifactId>
@@ -162,6 +157,16 @@
 		    <version>${lombok-version}</version>
 		    <scope>provided</scope>
 		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+		<dependency>
+		    <groupId>javax.servlet</groupId>
+		    <artifactId>javax.servlet-api</artifactId>
+		    <version>${servlet-version}</version>
+		    <scope>provided</scope>
+		</dependency>
+		
+		
 		<!-- Database -->
 		<dependency>
 		    <groupId>mysql</groupId>

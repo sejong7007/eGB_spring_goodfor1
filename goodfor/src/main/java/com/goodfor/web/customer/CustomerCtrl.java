@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.goodfor.web.enums.SQL;
@@ -29,7 +28,6 @@ public class CustomerCtrl {
 	private static final Logger logger = LoggerFactory.getLogger(CustomerCtrl.class);
 	@Autowired Map<String , Object> map;
 	@Autowired Customer cus;
-	//@Autowired Printer printer;
 	@Autowired CustomerMapper customerMapper;
 
 	@GetMapping("/{mid}/checkId")

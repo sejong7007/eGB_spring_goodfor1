@@ -71,7 +71,7 @@ admin = (()=>{
 			
 		$.each([{txt : '웹크롤링', name : 'web_crawl'},
 				{txt : '고객관리', name : 'cusmgt'},
-				{txt : '상품등록', name : 'itemreg'},
+				{txt : '커뮤니티 관리', name : 'cummgt'},
 				{txt : '상품조회', name : 'itemsrch'},
 				{txt : '상품관리', name : 'itemmgt'},
 				{txt : '상품삭제', name : 'itemdel'}],
@@ -89,8 +89,8 @@ admin = (()=>{
 					case 'cusmgt':
 						cusmgt()
 						break;
-					case 'itemreg':
-						itemreg()
+					case 'cummgt':
+						cummgt()
 						break;
 					case 'itemsrch':
 						itemsrch()
@@ -161,7 +161,7 @@ admin = (()=>{
 			alert('cusmgt 화면 들어옴')
 			$('#right').empty()
 			
-			$('<a>DB 생성</a></br></br>')
+			$('</br></br><a>DB 생성</a></br></br>')
 			.appendTo('#right')
 			.click(e=>{
 				e.preventDefault()
@@ -177,7 +177,7 @@ admin = (()=>{
 					alert('Table 생성여부 : '+d.msg)
 					})
 			})
-			$('<a>Customer Table 생성</a></br></br>')
+			$('<a>Customer Table 삭제</a></br></br>')
 			.appendTo('#right')
 			.click(e=>{
 				e.preventDefault()
@@ -214,8 +214,17 @@ admin = (()=>{
 			
 		}
 		
-		let itemreg=()=>{
-			alert('itemreg 화면 들어옴')
+		let cummgt=()=>{
+			alert('cummgt 화면 들어옴')
+			$('#right').empty()
+			$('</br></br><a>커뮤니티 테이블 생성</a></br></br>')
+			.appendTo('#right')
+			.click(e=>{
+				e.preventDefault()
+				$.getJSON(_+'/articles/create/table/', d=>{
+					alert('커뮤니티 생성여부 : '+d.msg)
+					})
+			})
 		}
 		
 		let itemsrch=()=>{

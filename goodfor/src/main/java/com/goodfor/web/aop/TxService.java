@@ -1,7 +1,6 @@
 package com.goodfor.web.aop;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -11,7 +10,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.goodfor.web.customer.Customer;
 import com.goodfor.web.customer.CustomerMapper;
-import com.goodfor.web.pxy.Proxy;
+import com.goodfor.web.pxy.CustomerProxy;
+import com.goodfor.web.pxy.PageProxy;
 
 
 @Service
@@ -19,8 +19,8 @@ public class TxService {
 
 	@Autowired TxMapper txmapper;
 	@Autowired CustomerMapper cusmapper;
-	@Autowired Proxy pxy;
-	//@Autowired List<String> txServiceList;
+	@Autowired PageProxy pxy;
+	@Autowired CustomerProxy custer;
 
 	@SuppressWarnings("unchecked")
 	public List<?> crawling(Map<?,?> paramMap){
@@ -32,10 +32,7 @@ public class TxService {
 	
 	@Transactional
 	public int registerUsers() {
-		List<Customer> list = new ArrayList<>();
-		for(Customer c : list) {
-			txmapper.insertCustomer(c);
-		}
+		custer.insertCustomer();
 		return cusmapper.countCustomer();
 	}
 	

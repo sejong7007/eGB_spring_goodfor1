@@ -23,6 +23,7 @@ import com.goodfor.web.enums.SQL;
 @RequestMapping("/admins")
 public class AdminCtrl {
 
+	@SuppressWarnings("unused")
 	private static final Logger logger = LoggerFactory.getLogger(AdminCtrl.class);
 	
 	@Autowired Map<String, Object> map;

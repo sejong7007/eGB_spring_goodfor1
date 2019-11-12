@@ -12,18 +12,19 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.goodfor.web.pxy.ProxyMap;
+import com.goodfor.web.pxy.Trunk;
 
 @RestController
 @Transactional
 @RequestMapping("/txctrls")
 public class TxController {
 	
+	@SuppressWarnings("unused")
 	private static final Logger logger = LoggerFactory.getLogger(TxController.class);
 	
 	@Autowired Map<String, Object> txctrlmap;
 	@Autowired TxService txservice;
-	@Autowired ProxyMap map;
+	@Autowired Trunk<Object> map;
 	
 	@GetMapping("/{site}/{srch}")
 	public Map<?,?> goGoogle(@PathVariable String site, @PathVariable String srch){
@@ -43,7 +44,7 @@ public class TxController {
 	@GetMapping("/register/users")
 	public Map<?,?> resisterUsers () {
 		int userCount = txservice.registerUsers();
-		map.accept(Arrays.asList("userCount"),Arrays.asList(userCount));
+		map.put(Arrays.asList("userCount"),Arrays.asList(userCount));
 		return map.get() ;
 	}
 	
