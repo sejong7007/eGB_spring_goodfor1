@@ -222,7 +222,15 @@ admin = (()=>{
 			.click(e=>{
 				e.preventDefault()
 				$.getJSON(_+'/articles/create/table/', d=>{
-					alert('커뮤니티 생성여부 : '+d.msg)
+					alert('커뮤니티 테이블 생성여부 : '+d.msg)
+					})
+			})
+			$('</br></br><a>커뮤니티 테이블 삭제</a></br></br>')
+			.appendTo('#right')
+			.click(e=>{
+				e.preventDefault()
+				$.getJSON(_+'/articles/drop/table/', d=>{
+					alert('커뮤니티 테이블 삭제여부 : '+d.msg)
 					})
 			})
 		}

@@ -114,7 +114,7 @@ public class CustomerProxy extends Proxy {
 	}
 	
 	public Customer makeCustomer() {
-		return new Customer(makeId(), "1234", makeNames(), makeEmail(), makePhoneNum(), makeBirth(), makeTooja(), makeRegisteDate(), "1");
+		return new Customer(makeId(), "1234", makeNames(), "test", makePhoneNum(), makeBirth(), makeTooja(), makeRegisteDate(), "1");
 	}
 	
 	

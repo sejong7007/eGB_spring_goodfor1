@@ -95,7 +95,7 @@ public class ArticleCtrl {
     public Map<?,?> createdb(){
     	HashMap<String, String> paramMap = new HashMap<>();
     	paramMap.put("CREATE_COMMT", SQL.CREATE_COMMT.toString());
-    	System.out.println("DB 생성 쿼리 : \n"+paramMap.get("CREATE_DB"));
+    	System.out.println("Community table 생성 쿼리 : \n"+paramMap.get("CREATE_COMMT"));
     	Consumer<HashMap<String, String>> c = t -> artMapper.createCommunity(t);
 		c.accept(paramMap);
 		paramMap.clear();
@@ -107,7 +107,7 @@ public class ArticleCtrl {
     public Map<?,?> dropCustomer(){
     	HashMap<String, String> paramMap = new HashMap<>();
     	paramMap.put("DROP_COMMT", SQL.DROP_COMMT.toString());
-    	System.out.println("테이블 삭제 쿼리 : \n"+paramMap.get("DROP_CUSTOMER"));
+    	System.out.println("Community table 삭제 쿼리 : \n"+paramMap.get("DROP_COMMT"));
     	Consumer<HashMap<String, String>> c = t -> artMapper.dropCommunity(t);
 		c.accept(paramMap);
 		paramMap.clear();
