@@ -20,6 +20,11 @@
 	<select id="dropAdmin" parameterType="map">
     	${DROP_ADMIN}
     </select>
+    
+    <insert id="insertAdmin" parameterType="Admin">
+		INSERT INTO ADMIN (AID, APW, ANAME, ANUM, ARANK, EMAIL, PHONENUM)
+        VALUES ( #{aid}, #{apw}, #{aname} ,#{anum}, #{arank}, #{email}, #{phonenum})
+    </insert>
 		
 	
 

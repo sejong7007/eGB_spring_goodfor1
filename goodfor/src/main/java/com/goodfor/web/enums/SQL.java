@@ -45,12 +45,14 @@ public enum SQL {
 					"	MID VARCHAR(10) NOT NULL,\r\n" + 
 					"	MNAME VARCHAR(4) NOT NULL,\r\n" + 
 					"	MEMO VARCHAR(30),\r\n" + 
-					"	UPLOADFILE VARCHAR(30))";
+					"	UPLOADFILE VARCHAR(30),\r\n" +
+					"	FOREIGN KEY (MID) REFERENCES CUSTOMER(MID))";
 			break;
 		case DROP_COMMT : 
 			result = "DROP TABLE GOODFOR.COMMUNITY";
 			break;
 		}
+		
 		return result;
 	}
 

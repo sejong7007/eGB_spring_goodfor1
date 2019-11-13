@@ -13,12 +13,14 @@
         SELECT COUNT(*) FROM ARTICLE
     </select>
     
+    <select id="countAdmin" resultType="int">
+		SELECT COUNT(*) COUNT FROM COMMUNITY
+	</select>
+    
     <select id="selectAll" resultType="Article" parameterType="Proxy">
-       	SELECT A.ART_TYPE AS artType, A.*
-   		FROM
-   		(SELECT * 
+       	SELECT * 
    		FROM ARTICLE 
-   		ORDER BY ARTSEQ DESC) A
+   		ORDER BY ARTSEQ DESC
    		LIMIT #{startRow}, #{pageSize}
     </select>
     

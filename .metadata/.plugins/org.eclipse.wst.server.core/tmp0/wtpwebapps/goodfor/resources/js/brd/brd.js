@@ -149,7 +149,6 @@ brd = (()=>{
 		$('#recent_updates').html(brd_vue.write())
 		$('#suggestions').remove()
 		$('#bbsubmit input[name="writer"]').val(getCookie("USERID"))
-		
 		$('<input>', {
         	type : "submit",
         	style : "float:right;width:100px;margin-right:10px",
@@ -179,7 +178,35 @@ brd = (()=>{
         			}
         		})
         	})
-		
+		$('<input>', {
+			style : "float:right;width:100px;margin-right:10px",
+			value : "FileUpload"
+		})
+		.addClass('btn btn-warning')
+		.appendTo('#bbsubmit')
+		.click(()=>{
+			let formData = new FormData()
+			let inputFile = $('#upload')[0].files
+			let i =0
+			for(;i<files.length;i++){
+				formData.append("uploadFile", files[i])
+			}
+			$.ajax({
+				url : _+"/articles/fileupload",
+				processData : false,
+				contentType : false,
+				data : formData,
+				type : 'POST',
+				success : d =>{
+					alert('파일업로드 성공')
+				},
+				error : e =>{
+					alert('파일업로드 실패')
+				}
+			})
+			alert(inputFile)
+			
+		})
 		$('<input>', {
         	type : "reset",
         	style : "float:right;width:100px;margin-right:10px",
@@ -193,6 +220,13 @@ brd = (()=>{
         		$('#recent_updates div.container-fluid').remove()
 				recent_update({page : '1', size : '5'})
         	})
+        
+        $('<input>', {
+			type : "file",
+			id : "upload"
+		})
+		.appendTo('#bbsubmit')
+        
 	}
 		
 	let detail =x=> {

@@ -48,5 +48,11 @@ public class TxController {
 		return map.get() ;
 	}
 	
+	@GetMapping("/register/admins")
+	public Map<?,?> resisterAdmin () {
+		int userCount = txservice.registerAdmins();
+		map.put(Arrays.asList("userCount"),Arrays.asList(userCount));
+		return map.get() ;
+	}
 
 }

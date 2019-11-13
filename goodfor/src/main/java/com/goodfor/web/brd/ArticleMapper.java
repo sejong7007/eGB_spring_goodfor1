@@ -17,5 +17,6 @@ public interface ArticleMapper {
 	public void updateByArtseq(Article param);
 	public void createCommunity(HashMap<String, String> paramMap);
 	public void dropCommunity(HashMap<String, String> paramMap);
+	public int countCommt();
 	
 }

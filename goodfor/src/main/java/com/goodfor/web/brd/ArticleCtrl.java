@@ -1,5 +1,7 @@
 package com.goodfor.web.brd;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -19,7 +21,9 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
+import com.goodfor.web.enums.Path;
 import com.goodfor.web.enums.SQL;
 import com.goodfor.web.pxy.Box;
 import com.goodfor.web.pxy.PageProxy;
@@ -36,8 +40,9 @@ public class ArticleCtrl {
 	@Autowired Article art;
 	@Autowired ArticleMapper artMapper;
 	@Autowired Box<Article> box;
-	@Qualifier PageProxy pager;
+	@Autowired PageProxy pager;
 	@Autowired Trunk<Object> map;
+	
 		
 	@PostMapping("/")
 	public Map<?,?> writeArticle(@RequestBody Article param){
@@ -53,8 +58,9 @@ public class ArticleCtrl {
 		System.out.println("넘어오는 값 : "+pageNo+" , "+pageSize);
 		pager.setPageNum(pager.parseInt(pageNo));
 		pager.setPageSize(pager.parseInt(pageSize));
+		System.out.println("중간점검"+pager.getPageNum()+pager.getPageSize());
 		pager.paging();
-		box.clear();
+		//box.clear();
 		Supplier<List<Article>> s = () -> artMapper.selectAll(pager);
 		System.out.println("넘어가는 값 : "+pager.getPages());
 		
@@ -87,8 +93,19 @@ public class ArticleCtrl {
 	}
 	
 	@GetMapping("/fileupload")
-	public void fileUpload() {
-		
+	public void fileUpload(MultipartFile[] uploadFile) {
+		String uploadFolder = Path.UPLOAD_PATH.toString();
+		for(MultipartFile f : uploadFile) {
+			String fname = f.getOriginalFilename();
+			fname = fname.substring(fname.lastIndexOf("\\"+1));
+			File saveFile = new File(uploadFolder, fname);
+			try {
+				f.transferTo(saveFile);
+			} catch (Exception e) {
+				e.printStackTrace();
+			} 
+			
+		}
 	}
 	
 	@GetMapping("/create/table")
@@ -114,5 +131,10 @@ public class ArticleCtrl {
 		paramMap.put("msg", "SUCCESS");
 		return paramMap;
     }
+    
+    /*@GetMapping("/fileupload")
+    public void fileupload() {
+    	
+    }*/
 	
 }

@@ -209,6 +209,14 @@ admin = (()=>{
 					alert('Table 삭제여부 : '+d.msg)
 					})
 			})
+			$('<a>Admin 대량 등록</a></br></br>')
+			.appendTo('#right')
+			.click(e=>{
+				e.preventDefault()
+				$.getJSON(_+'/txctrls/register/admins/', d=>{
+					alert('admin 등록 수 : '+d.userCount)
+				})
+			})
 			
 			/*$(brd_vue.customer_mgt()).appendTo('#right')*/
 			
@@ -217,11 +225,12 @@ admin = (()=>{
 		let cummgt=()=>{
 			alert('cummgt 화면 들어옴')
 			$('#right').empty()
+			
 			$('</br></br><a>커뮤니티 테이블 생성</a></br></br>')
 			.appendTo('#right')
 			.click(e=>{
 				e.preventDefault()
-				$.getJSON(_+'/articles/create/table/', d=>{
+				$.getJSON(_+'/community/create/table/', d=>{
 					alert('커뮤니티 테이블 생성여부 : '+d.msg)
 					})
 			})
@@ -229,9 +238,17 @@ admin = (()=>{
 			.appendTo('#right')
 			.click(e=>{
 				e.preventDefault()
-				$.getJSON(_+'/articles/drop/table/', d=>{
+				$.getJSON(_+'/community/drop/table/', d=>{
 					alert('커뮤니티 테이블 삭제여부 : '+d.msg)
 					})
+			})
+			$('<a>Community 대량 등록</a></br></br>')
+			.appendTo('#right')
+			.click(e=>{
+				e.preventDefault()
+				$.getJSON(_+'/txctrls/register/commt/', d=>{
+					alert('commt 등록 수 : '+d.userCount)
+				})
 			})
 		}
 		

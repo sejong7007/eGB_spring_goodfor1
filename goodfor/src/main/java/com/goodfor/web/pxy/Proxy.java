@@ -14,6 +14,11 @@ public class Proxy {
 		return f.apply(param);
 	}
 	
+	public String toString(Object param) {
+		Function<Object, String> f = String::valueOf;
+		return f.apply(param);
+	}
+	
 	public boolean equals(String p1, String p2) {
 		BiPredicate<String, String> f = String::equals;
 		return f.test(p1, p2);

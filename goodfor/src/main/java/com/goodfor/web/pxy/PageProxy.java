@@ -33,6 +33,7 @@ public class PageProxy extends Proxy {
 	@Autowired ArticleMapper artMapper;
 	
 	public void paging() {
+		System.out.println("pageproxy 입장");
 		Supplier<String> s = ()-> artMapper.countArticle();
 		int totalCount = Integer.parseInt(s.get());
 		int pageCount = (totalCount%pageSize==0)? totalCount/pageSize : totalCount/pageSize+1 ;
@@ -46,7 +47,7 @@ public class PageProxy extends Proxy {
 		existNext = ((blockNum+1)!=blockCount);
 		nextPage = startPage+BLOCK_SIZE;
 		prePage = startPage-BLOCK_SIZE;
-		
+		System.out.println("pageproxy 퇴장"+artMapper.countArticle());
 	}
 	
 	
