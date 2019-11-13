@@ -14,13 +14,17 @@
     	${CREATE_CUSTOMER}
     </select>
     
+    <select id="dropCustomer" parameterType="map">
+    	${DROP_CUSTOMER}
+    </select>
+    
     <select id="selectByIdPw" resultType="Customer">
         SELECT * FROM CUSTOMER WHERE MID LIKE #{mid} AND MPW LIKE #{mpw}
     </select>
 
     <insert id="insertCustomer" parameterType="Customer">
-		INSERT INTO CUSTOMER (MID, MPW, MNAME )
-        VALUES ( #{mid}, #{mpw}, #{mname} )
+		INSERT INTO CUSTOMER (MID, MPW, MNAME,EMAIL, PHONENUM, BIRTH, TOOJA, REGISTER_DATE, TIER  )
+        VALUES ( #{mid}, #{mpw}, #{mname} ,#{email}, #{phonenum}, #{birth}, #{tooja}, #{registerDate}, #{tier})
     </insert>
     
     <select id="existId" resultType="int">

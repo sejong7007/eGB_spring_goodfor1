@@ -115,10 +115,11 @@ admin = (()=>{
 			'</form>')
 			.appendTo('#right')
 			
-			$.each([ {name : 'naver', nick : '네이버'},
+			$.each([ {name : 'test', nick : '직접입력'},
+					 {name : 'naver', nick : '네이버'},
 					 {name : 'google', nick : '구글'},
 					 {name : 'daum', nick : '다음'},
-					 {name : 'youtube', nick : '유투브'} ],
+					 {name : 'youtube', nick : '유투브'}],
 					(i,j)=>{
 						$('<option value="'+j.name+'">'+j.nick+'</option>')
 						.appendTo('#crawl_form select')
@@ -133,7 +134,8 @@ admin = (()=>{
 			.click(e=>{
 				e.preventDefault()
 				alert($('#crawl_form select').val()+' , '+ $('#crawl_form input').val())
-				let arr = [$('#crawl_form select').val(), $('#crawl_form input').val()]
+				let arr = [$('#crawl_form select').val(), $('#crawl_form input').val(),
+					$('#crawl_form select').val(), $('#crawl_form input').val()]
 				if(!$.fn.nullChecker(arr)
 				){
 					$.getJSON(_+'/txctrls/'+arr[0]+'/'+arr[1],
@@ -222,7 +224,47 @@ admin = (()=>{
 			.click(e=>{
 				e.preventDefault()
 				$.getJSON(_+'/articles/create/table/', d=>{
-					alert('커뮤니티 생성여부 : '+d.msg)
+					alert('커뮤니티 테이블 생성여부 : '+d.msg)
+					})
+			})
+			$('</br></br><a>커뮤니티 테이블 삭제</a></br></br>')
+			.appendTo('#right')
+			.click(e=>{
+				e.preventDefault()
+				$.getJSON(_+'/articles/drop/table/', d=>{
+					alert('커뮤니티 테이블 삭제여부 : '+d.msg)
+					})
+			})
+			$('</br></br><a>아티클 테이블 생성</a></br></br>')
+			.appendTo('#right')
+			.click(e=>{
+				e.preventDefault()
+				$.getJSON(_+'/articles/create/article/', d=>{
+					alert('아티클 테이블 생성 여부 : '+d.msg)
+					})
+			})
+			$('</br></br><a>아티클 테이블 삭제</a></br></br>')
+			.appendTo('#right')
+			.click(e=>{
+				e.preventDefault()
+				$.getJSON(_+'/articles/drop/article/', d=>{
+					alert('아티클 테이블 삭제 여부 : '+d.msg)
+					})
+			})
+			$('</br></br><a>커뮤니티 정보 입력</a></br></br>')
+			.appendTo('#right')
+			.click(e=>{
+				e.preventDefault()
+				$.getJSON(_+'/txctrls/write/texts/', d=>{
+					alert('커뮤니티 글 수 : '+d.msg)
+					})
+			})
+			$('</br></br><a>아티클 정보 입력</a></br></br>')
+			.appendTo('#right')
+			.click(e=>{
+				e.preventDefault()
+				$.getJSON(_+'/txctrls/write/article/', d=>{
+					alert('커뮤니티 글 수 : '+d.articleCount)
 					})
 			})
 		}

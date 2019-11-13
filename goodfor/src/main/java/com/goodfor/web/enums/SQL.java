@@ -2,7 +2,7 @@ package com.goodfor.web.enums;
 
 public enum SQL {
 	CREATE_CUSTOMER, DROP_CUSTOMER, CREATE_DB, CREATE_ADMIN, DROP_ADMIN,
-	CREATE_COMMT, DROP_COMMT;
+	CREATE_COMMT, DROP_COMMT, CREATE_ARTICLE, DROP_ARTICLE;
 	@Override
 	public String toString() {
 		String result = "";
@@ -40,18 +40,38 @@ public enum SQL {
 			result = "CREATE DATABASE GOODFORDB";
 			break;
 		case CREATE_COMMT :
-			result = "CREATE TABLE GOODFOR.COMMUNITY(\n" + 
-					"    SEQNO INT(4) PRIMARY KEY AUTO_INCREMENT,\n" + 
-					"    MID VARCHAR(10) NOT NULL,\n" + 
-					"    MNAME VARCHAR(4) NOT NULL,\n" + 
-					"    MEMO VARCHAR(30),\n" + 
-					"    UPLOADFILE VARCHAR(30));";
+			result = "CREATE TABLE GOODFOR.COMMUNITY(\r\n" + 
+					"	SEQNO INT(4) PRIMARY KEY AUTO_INCREMENT,\r\n" + 
+					"	MID VARCHAR(10) NOT NULL,\r\n" + 
+					"	MNAME VARCHAR(4) NOT NULL,\r\n" + 
+					"	MEMO VARCHAR(300),\r\n" + 
+					"	UPLOADFILE VARCHAR(30))";
 			break;
-		case DROP_COMMT : 
+		case DROP_COMMT:
 			result = "DROP TABLE GOODFOR.COMMUNITY";
+			break;
+		case CREATE_ARTICLE:
+			result = "CREATE TABLE ARTICLE(\r\n"
+	                   + "ARTSEQ INT AUTO_INCREMENT PRIMARY KEY,\r\n"
+	                   + "MID VARCHAR(30)  REFERENCES CUSTOMER,\r\n"
+	                   + "BOARDTYPE VARCHAR(50),\r\n"
+	                   + "TITLE VARCHAR(100),\r\n"
+	                   + "UPLOADFILE VARCHAR(30),\r\n"
+	                   + "CONTENT VARCHAR(200))";
+			break;
+		case DROP_ARTICLE:
+			result = "DROP TABLE GOODFOR.ARTICLE";
 			break;
 		}
 		return result;
 	}
 
 }
+
+/**"CREATE TABLE GOODFOR.COMMUNITY(\r\n" + 
+"	SEQNO INT(4) PRIMARY KEY AUTO_INCREMENT,\r\n" + 
+"	MID VARCHAR(10) NOT NULL,\r\n" + 
+"	BRDTYPE VARCHAR(10) NOT NULL,\r\n" + 
+"	TITLE VARCHAR(50),\r\n" + 
+"	CONTENT VARCHAR(300),\r\n" + 
+"	UPLOADFILE VARCHAR(30))"*/

@@ -149,11 +149,53 @@ brd = (()=>{
 		$('#recent_updates').html(brd_vue.write())
 		$('#suggestions').remove()
 		$('#bbsubmit input[name="writer"]').val(getCookie("USERID"))
-		
+		$('<input>', {
+        	type : "reset",
+        	style : "float:right;width:100px;margin-right:10px",
+			value : "취소"
+		})
+		.addClass('btn btn-danger')
+		.appendTo('#bbsubmit')
+		.click( e => {
+        		e.preventDefault()
+        		alert('취소되었습니다.')
+        		$('#recent_updates div.container-fluid').remove()
+				recent_update({page : '1', size : '5'})
+        })
+        $('<input>', {
+        	style : "float:right;width:100px;margin-right:10px",
+			value : "파일업로드"
+		})
+		.addClass('btn btn-warning')
+		.appendTo('#bbsubmit')
+		.click(()=>{
+        		alert('파일업로드')
+        		let formData = new FormData()
+        		let inputFile = $('#upload')
+        		let files = inputFile[0].files
+        		let i = 0
+        		for(;i<files.length;i++){
+        			formData.append("uploadFile", files[i])
+				}
+        		$.ajax({
+        			url: _+'/articles/fileupload/',
+        			processData: false,
+        			contentType: false,
+        			data: formData,
+        			type: 'POST',
+        			success: d =>{
+        				alert('파일 업로드 성공')
+        			},
+        			error : e =>{
+        				alert('파일 업로드 실패')
+        			}
+        		})
+        		alert(inputFile)
+        })
 		$('<input>', {
         	type : "submit",
         	style : "float:right;width:100px;margin-right:10px",
-			value : "SUBMIT"
+			value : "글쓰기"
 		})
 		.addClass('btn btn-primary')
 		.appendTo('#bbsubmit')
@@ -179,24 +221,15 @@ brd = (()=>{
         			}
         		})
         	})
-		
-		$('<input>', {
-        	type : "reset",
-        	style : "float:right;width:100px;margin-right:10px",
-			value : "CANCEL"
-		})
-		.addClass('btn btn-danger')
-		.appendTo('#bbsubmit')
-		.click( e => {
-        		e.preventDefault()
-        		alert('취소되었습니다.')
-        		$('#recent_updates div.container-fluid').remove()
-				recent_update({page : '1', size : '5'})
+        	$('<input>',{
+        		type: "file",
+        		id: "upload"
         	})
+        	.appendTo('#bbsubmit')
+        
 	}
 		
 	let detail =x=> {
-		
 		$('#recent_updates').html(brd_vue.write())
 		$('#suggestions').remove()
 		$('#bbsubmit input[name="writer"]').val(x.mid)
@@ -231,7 +264,6 @@ brd = (()=>{
         			}
         		})
         	})
-		
 		$('<input>', {
         	type : "reset",
         	style : "float:right;width:100px;margin-right:10px",

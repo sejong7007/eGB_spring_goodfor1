@@ -13,12 +13,13 @@
         SELECT COUNT(*) FROM ARTICLE
     </select>
     
+    <select id="countArticles" resultType="string">
+   		SELECT COUNT(*) FROM ARTICLE
+   </select>
+    
     <select id="selectAll" resultType="Article" parameterType="Proxy">
-       	SELECT A.ART_TYPE AS artType, A.*
-   		FROM
-   		(SELECT * 
-   		FROM ARTICLE 
-   		ORDER BY ARTSEQ DESC) A
+       	SELECT *
+   		FROM ARTICLE
    		LIMIT #{startRow}, #{pageSize}
     </select>
     
@@ -39,5 +40,12 @@
     	${DROP_COMMT}
     </select>
     
+    <select id="createArticle" parameterType="map">
+    	${CREATE_ARTICLE}
+    </select>
+    
+    <select id="dropArticle" parameterType="map">
+    	${DROP_ARTICLE}
+    </select>
     
 </mapper>

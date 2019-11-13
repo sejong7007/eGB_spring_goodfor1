@@ -9,10 +9,8 @@ public class Box<T> {
      
 	private ArrayList<T> list;
      
-	 public void add(T item) {
-		list = new ArrayList<>();
-		list.add(item);
-	 }
+	 public Box() {list = new ArrayList<T>();}
+	 public void add(T item) {list.add(item);}
 	 public T get(int i) { return list.get(i); }
 	 public ArrayList<T> getList() { return list; }
 	 public int size() { return list.size(); }
