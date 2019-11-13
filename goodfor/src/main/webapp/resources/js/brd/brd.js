@@ -115,8 +115,6 @@ brd = (()=>{
         		}
         	}
         	
-        	
-        	
 	        /*$.each(d.pxy.pages,(i,j)=>{
 	        	$('<li class="page-item"><a class="page-link" href="#">'+j+'</a></li>')
 	        	.appendTo('#pagination')
@@ -226,7 +224,6 @@ brd = (()=>{
         		id: "upload"
         	})
         	.appendTo('#bbsubmit')
-        
 	}
 		
 	let detail =x=> {

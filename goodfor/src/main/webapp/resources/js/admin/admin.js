@@ -72,7 +72,7 @@ admin = (()=>{
 		$.each([{txt : '웹크롤링', name : 'web_crawl'},
 				{txt : '고객관리', name : 'cusmgt'},
 				{txt : '커뮤니티 관리', name : 'cummgt'},
-				{txt : '상품조회', name : 'itemsrch'},
+				{txt : '주식 관리', name : 'stocks'},
 				{txt : '상품관리', name : 'itemmgt'},
 				{txt : '상품삭제', name : 'itemdel'}],
 			(i,j)=>{
@@ -93,7 +93,7 @@ admin = (()=>{
 						cummgt()
 						break;
 					case 'itemsrch':
-						itemsrch()
+						stocks()
 						break;
 					case 'itemmgt':
 						itemmgt()
@@ -269,8 +269,25 @@ admin = (()=>{
 			})
 		}
 		
-		let itemsrch=()=>{
-			alert('itemsrch 화면 들어옴')
+		let stocks=()=>{
+			alert('stocks 화면 들어옴')
+			$('#right').empty()
+			$('</br></br><a>주식 테이블 생성</a></br></br>')
+			.appendTo('#right')
+			.click(e=>{
+				e.preventDefault()
+				$.getJSON(_+'/stock/create/table/', d=>{
+					alert('주식 테이블 생성여부 : '+d.msg)
+					})
+			})
+			$('</br></br><a>주식 테이블 삭제</a></br></br>')
+			.appendTo('#right')
+			.click(e=>{
+				e.preventDefault()
+				$.getJSON(_+'/stock/drop/table/', d=>{
+					alert('주식 테이블 삭제여부 : '+d.msg)
+					})
+			})
 		}
 		
 		let itemmgt=()=>{

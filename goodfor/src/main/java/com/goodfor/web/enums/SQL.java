@@ -2,7 +2,7 @@ package com.goodfor.web.enums;
 
 public enum SQL {
 	CREATE_CUSTOMER, DROP_CUSTOMER, CREATE_DB, CREATE_ADMIN, DROP_ADMIN,
-	CREATE_COMMT, DROP_COMMT, CREATE_ARTICLE, DROP_ARTICLE;
+	CREATE_COMMT, DROP_COMMT, CREATE_ARTICLE, DROP_ARTICLE, CREATE_STOCK, DROP_STOCK;
 	@Override
 	public String toString() {
 		String result = "";
@@ -61,6 +61,65 @@ public enum SQL {
 			break;
 		case DROP_ARTICLE:
 			result = "DROP TABLE GOODFOR.ARTICLE";
+			break;
+		case CREATE_STOCK:
+			result = "CREATE TABLE GOODFOR.STOCK( \r\n" + 
+					"STOCKNAME VARCHAR(20) NOT NULL,\r\n" + 
+					"STOCKCODE INT PRIMARY KEY,\r\n" + 
+					"CURRENTPRICE INT(15) NOT NULL,\r\n" + 
+					"CLOSINGPRICE INT(15) NOT NULL,\r\n" + 
+					"PREVIOUSCLOSINGPRICE INT(15) NOT NULL,\r\n" + 
+					"NETCHANGE INT(15) NOT NULL,\r\n" + 
+					"CHANGERATIO INT(5) NOT NULL,\r\n" + 
+					"MARKETPRICE INT(15) NOT NULL,\r\n" + 
+					"HIGH INT(15) NOT NULL,\r\n" + 
+					"LOW INT(15) NOT NULL,\r\n" + 
+					"MAXPRICE INT(15) NOT NULL,\r\n" + 
+					"MINPRICE INT(15) NOT NULL,\r\n" + 
+					"VOLUME INT(15) NOT NULL,\r\n" + 
+					"CLOSINGVOLUME INT(15) NOT NULL,\r\n" + 
+					"TRADINGAMOUNT INT(15) NOT NULL,\r\n" + 
+					"ASKPRICE INT(15) NOT NULL,\r\n" + 
+					"BIDPRICE INT(15) NOT NULL,\r\n" + 
+					"CLOSINGHIGH INT(15) NOT NULL,\r\n" + 
+					"CLOSINGLOW INT(15) NOT NULL,\r\n" + 
+					"PRICEEARNINGRATIO INT(5) NOT NULL,\r\n" + 
+					"EARNINGPERSHARE INT(15) NOT NULL,\r\n" + 
+					"CAPITAL INT(15) NOT NULL,\r\n" + 
+					"ASKREMAINING INT(15) NOT NULL,\r\n" + 
+					"BIDREMAINING INT(15) NOT NULL,\r\n" + 
+					"REMAININGSUM INT(15) NOT NULL,\r\n" + 
+					"CONCLUSIONTIME INT(5) NOT NULL,\r\n" + 
+					"CONCLUSIONPRICE INT(15) NOT NULL,\r\n" + 
+					"ASK INT(15) NOT NULL,\r\n" + 
+					"BID INT(15) NOT NULL,\r\n" + 
+					"FLUCTUATION INT(15) NOT NULL,\r\n" + 
+					"DATE INT(15) NOT NULL,\r\n" + 
+					"MARKETCAP INT(15) NOT NULL,\r\n" + 
+					"MARKETCAPRANK INT(15) NOT NULL,\r\n" + 
+					"NUMSTOCKLIST INT(15) NOT NULL,\r\n" + 
+					"FACEVALUE INT(15) NOT NULL,\r\n" + 
+					"FULLLOT INT(15) NOT NULL,\r\n" + 
+					"PRICETARGET INT(15) NOT NULL,\r\n" + 
+					"WEEKHIGH INT(15) NOT NULL,\r\n" + 
+					"WEEKLOW INT(15) NOT NULL,\r\n" + 
+					"FOREIGNLIMIT INT(15) NOT NULL,\r\n" + 
+					"FOREIGNPOSSESSION INT(15) NOT NULL,\r\n" + 
+					"FOREIGNEXHAUSTRATE INT(15) NOT NULL,\r\n" + 
+					"FOREIGNAVAILABLE INT(15) NOT NULL,\r\n" + 
+					"FOREIGNACQUISITION INT(15) NOT NULL,\r\n" + 
+					"FOREIGNBID INT(15) NOT NULL,\r\n" + 
+					"PRICELIMITS INT(15) NOT NULL,\r\n" + 
+					"ASKINGPRICEUNIT INT(15) NOT NULL,\r\n" + 
+					"SUBSTITUTEPRICE INT(15) NOT NULL,\r\n" + 
+					"EXPECTEDVALUE INT(15) NOT NULL,\r\n" + 
+					"EXPECTEDVOLUME INT(15) NOT NULL,\r\n" + 
+					"PERMARKETCAPITALIZATION INT(15) NOT NULL,\r\n" + 
+					"CONCLUSIONINDEX INT(15) NOT NULL,\r\n" + 
+					"MID VARCHAR(10) REFERENCES CUSTOMER);";
+			break;
+		case DROP_STOCK:
+			result = "DROP TABLE GOODFOR.STOCK";
 			break;
 		}
 		return result;

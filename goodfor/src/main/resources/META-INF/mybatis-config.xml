@@ -9,5 +9,6 @@
        <typeAlias alias="Article"  type="com.goodfor.web.brd.Article"/>
        <typeAlias alias="Admin"  type="com.goodfor.web.admin.Admin"/>
        <typeAlias alias="Proxy"  type="com.goodfor.web.pxy.Proxy"/>
+       <typeAlias alias="Stock"  type="com.goodfor.web.stock.Stock"/>
     </typeAliases>
 </configuration>

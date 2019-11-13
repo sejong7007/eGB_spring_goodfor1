@@ -42,8 +42,9 @@ public class OthersTest {
         }
         for(int i=0; i<10; i++) {
         	artist5.put(artist2.get(i), artist4.get(i));
+        	System.out.println(artist5);
         }
-        System.out.println(artist5);
+        
 //        System.out.println("종목명 ="+artist2.get(0)+", 상승률 ="+artist4.get(0));
         /**HashMap<List<String>,List<String>> hashmap = new HashMap<>();
         hashmap.put(artist2, artist4);
