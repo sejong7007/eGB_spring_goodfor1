@@ -92,7 +92,7 @@ admin = (()=>{
 					case 'cummgt':
 						cummgt()
 						break;
-					case 'itemsrch':
+					case 'stocks':
 						stocks()
 						break;
 					case 'itemmgt':
@@ -276,7 +276,7 @@ admin = (()=>{
 			.appendTo('#right')
 			.click(e=>{
 				e.preventDefault()
-				$.getJSON(_+'/stock/create/table/', d=>{
+				$.getJSON(_+'/stock/create/stock/', d=>{
 					alert('주식 테이블 생성여부 : '+d.msg)
 					})
 			})
@@ -284,7 +284,7 @@ admin = (()=>{
 			.appendTo('#right')
 			.click(e=>{
 				e.preventDefault()
-				$.getJSON(_+'/stock/drop/table/', d=>{
+				$.getJSON(_+'/stock/drop/stock/', d=>{
 					alert('주식 테이블 삭제여부 : '+d.msg)
 					})
 			})

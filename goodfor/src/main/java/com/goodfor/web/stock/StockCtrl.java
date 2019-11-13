@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.goodfor.web.brd.ArticleCtrl;
 import com.goodfor.web.enums.SQL;
+import com.goodfor.web.utl.Printer;
 
 @RestController
 @RequestMapping("/stock")
@@ -19,9 +20,11 @@ public class StockCtrl {
 	private static final Logger logger = LoggerFactory.getLogger(ArticleCtrl.class);
 	
 	@Autowired StockMapper stockMapper;
+	@Autowired Printer p;
 	
-	@GetMapping("/create/article")
+	@GetMapping("/create/stock")
     public Map<?,?> createStock(){
+		p.accept("주식 테이블 생성 들어옴");
     	HashMap<String, String> paramMap = new HashMap<>();
     	paramMap.put("CREATE_STOCK", SQL.CREATE_STOCK.toString());
     	System.out.println("CREATE_STOCK table 생성 쿼리 : \n"+paramMap.get("CREATE_STOCK"));
@@ -32,7 +35,7 @@ public class StockCtrl {
 		return paramMap;
     }
 	
-	@GetMapping("/create/article")
+	@GetMapping("/drop/stock")
     public Map<?,?> dropStock(){
     	HashMap<String, String> paramMap = new HashMap<>();
     	paramMap.put("DROP_STOCK", SQL.DROP_STOCK.toString());
