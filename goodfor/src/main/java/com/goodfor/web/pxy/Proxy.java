@@ -1,5 +1,8 @@
 package com.goodfor.web.pxy;
 
+import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.function.BiFunction;
 import java.util.function.BiPredicate;
 import java.util.function.Function;
@@ -31,6 +34,24 @@ public class Proxy {
 	public int random(int a, int b) {
 		BiFunction<Integer, Integer, Integer> f = (x , y) -> (int)(Math.random()*(y-x))+x; 
 		return f.apply(a, b);
+	}
+	
+	public String currentDate() {
+		return new SimpleDateFormat("yyyy-MM-dd").format(new Date());
+	}
+	
+	public String currenttime() {
+		return new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(new Date());
+	}
+	
+	public File makeDir(String t, String u) {
+		BiFunction<String, String, File> f = File::new;
+		return f.apply(t, u);
+	}
+	
+	public File makeFile(File t, String u) {
+		BiFunction<File, String, File> f = File::new;
+		return f.apply(t, u);
 	}
 	
 }

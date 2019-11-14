@@ -27,7 +27,6 @@ public class PageProxy extends Proxy {
 	public void paging() {
 		Supplier<String> s = ()-> artMapper.countArticle();
 		totalCount = Integer.parseInt(s.get());
-		p.accept("포록시 안에서 찍은 전체 글 객수 :"+totalCount);
 		pageCount = (totalCount%pageSize==0)? totalCount/pageSize : (totalCount/pageSize)+1 ;
 		startRow = (pageNum-1) * pageSize ;
 		endRow = (pageNum == pageCount) ? totalCount-1 : startRow + pageSize-1 ;

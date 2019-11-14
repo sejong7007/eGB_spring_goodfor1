@@ -1,7 +1,6 @@
 package com.goodfor.web.pxy;
 
 import java.util.ArrayList;
-
 import org.springframework.stereotype.Component;
 
 @Component

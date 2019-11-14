@@ -8,8 +8,7 @@ public enum Path {
 		String result = "";
 		switch(this) {
 		case UPLOAD_PATH :
-			
-			result = "//C:\\Users\\User\\git\\eGB_spring_goodfor1\\goodfor\\src\\main\\webapp\\resources\\upload\\temp";
+			result = "//C:\\Users\\User\\git\\eGB_spring_goodfor1\\goodfor\\src\\main\\webapp\\resources\\upload\\";
 			break;
 		case CRAWLING_TAGET :
 			result = "https://store.naver.com/accommodations/detail?entry=plt&id=1285629759&tab=bookingReview&tabPage=0";

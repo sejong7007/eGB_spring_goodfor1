@@ -26,6 +26,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.goodfor.web.enums.Path;
 import com.goodfor.web.enums.SQL;
 import com.goodfor.web.pxy.Box;
+import com.goodfor.web.pxy.FileProxy;
 import com.goodfor.web.pxy.PageProxy;
 import com.goodfor.web.pxy.Trunk;
 import com.goodfor.web.utl.Printer;
@@ -43,7 +44,8 @@ public class ArticleCtrl {
 	@Autowired Box<Article> box;
 	@Autowired PageProxy pager;
 	@Autowired Trunk<Object> trunk;
-	@Autowired Printer pinter;
+	@Autowired Printer printer;
+	@Autowired FileProxy filemgr;
 		
 	@PostMapping("/")
 	public Map<?,?> writeArticle(@RequestBody Article param){
@@ -56,15 +58,11 @@ public class ArticleCtrl {
 	
 	@GetMapping("/page/{pageNo}/size/{pageSize}")
 	public Map<?,?> listArt(@PathVariable String pageNo, @PathVariable String pageSize){
-		pinter.accept("넘어오는 값 : "+pageNo+" , "+pageSize);
 		pager.setPageNum(pager.integer(pageNo));
-		pinter.accept("널포인트 위치 넘"+pageNo);
 		pager.setPageSize(pager.integer(pageSize));
-		pinter.accept("널포인트 위치 사이즈"+pageSize);
 		pager.paging();
 //		box.clear();
 		Supplier<List<Article>> s = () -> artMapper.selectAll(pager);
-		pinter.accept("넘어가는 값 : "+pager.getPages());
 		trunk.put(Arrays.asList("articles", "pxy"),
 				   Arrays.asList(s.get(), pager)) ;
 		return trunk.get();
@@ -143,19 +141,8 @@ public class ArticleCtrl {
 	
     @PostMapping("/fileupload")
     public void fileupload(MultipartFile[] uploadFile) {
-    	pinter.accept("파일 업로드 들어옴");
-    	String uploadFolder = Path.UPLOAD_PATH.toString();
-    	for(MultipartFile f : uploadFile) {
-    		String fname = f.getOriginalFilename();
-    		fname = fname.substring(fname.lastIndexOf("\\")+1);
-    		File saveFile = new File(uploadFolder, fname);
-    		
-    		try {
-				f.transferTo(saveFile);
-				pinter.accept("트라이 캐치 안 파일이름 : "+fname);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-    	}
+    	printer.accept("파일 업로드 들어옴");
+    	filemgr.fileupload(uploadFile);
     }
+
 }
